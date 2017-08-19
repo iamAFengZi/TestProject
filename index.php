@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: HUCC
+ * User: Bear_Yiii
  * Date: 2017/8/19
- * Time: 10:23
+ * Time: 21:42
  */
 header("content-type:text/html;charset=utf-8");
 
