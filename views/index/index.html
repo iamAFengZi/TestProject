@@ -83,7 +83,17 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-
+        $.ajax({
+            type:"get",
+            url:"/api/login",
+            data:{
+                tc_name:"前端学院",
+                tc_pass:"123456"
+            },
+            success:function (info) {
+                console.log(info);
+            }
+        });
     </script>
 </body>
 </html>
