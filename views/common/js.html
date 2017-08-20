@@ -1,5 +1,12 @@
-<script src="/public/assets/jquery/jquery.min.js"></script>
-<script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="/public/assets/nprogress/nprogress.js"></script>
-<script src="/public/assets/echarts/echarts.min.js"></script>
-<script src="/public/js/common.js"></script>
+
+<!--功能：
+  1. 引入模块化文件
+  2. 引入模块化配置
+  3. 加载common.js模块，所有页面都需要话的功能
+-->
+<script src="/public/js/common/require.js"></script>
+<script src="/public/js/common/config.js"></script>
+
+<script>
+  require(["js/common/common"]);
+</script>
