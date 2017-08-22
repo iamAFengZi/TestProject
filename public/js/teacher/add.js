@@ -7,7 +7,7 @@ define(["jquery", "template","tools"], function ($, template, tools) {
     var $teacher = $(".teacher");
       
     var tc_id = tools.getParam("tc_id");
-    console.log(tc_id);
+    
     //判断tc_id值存在时对应讲师修改,否则是讲师添加
     var data = {};
     
@@ -39,10 +39,10 @@ define(["jquery", "template","tools"], function ($, template, tools) {
       $teacher.html(template("teacher_add_tpl", data));
       //调用日期控件
       tools.setDate("#tc_join_date");
-      
     }
     //点击修改或者添加按钮,注册委托事件
     $teacher.on("click",".btn_add",function () {
+      // console.log($("form").serialize());
       var url = "";
       //设置ajax地址
       if(tc_id){
@@ -61,8 +61,6 @@ define(["jquery", "template","tools"], function ($, template, tools) {
         }
       });
     });
-    
-    //调用时间控件
    
   
   

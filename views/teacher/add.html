@@ -28,7 +28,7 @@
       <div class="teacher-add">
         <form action="" class="form-horizontal col-md-offset-2">
           <div class="form-group">
-            <label for="" class="col-md-3 control-label">姓名</label>
+            <label   class="col-md-3 control-label">姓名</label>
             <div class="col-md-4">
               <!--隐藏域保存tc_id值-->
               <input type="hidden" name="tc_id" value="{{tc_id}}">
@@ -37,20 +37,20 @@
           </div>
           {{if !tc_id}}
           <div class="form-group">
-            <label for="" class="col-md-3 control-label">密码</label>
+            <label   class="col-md-3 control-label">密码</label>
             <div class="col-md-4">
               <input type="password" name="tc_pass" class="form-control input-sm">
             </div>
           </div>
           {{/if}}
           <div class="form-group">
-            <label for="" class="col-md-3 control-label">入职时间</label>
+            <label   class="col-md-3 control-label">入职时间</label>
             <div class="col-md-4">
               <input type="text" name="tc_join_date" value="{{tc_join_date}}" class="form-control input-sm" id="tc_join_date">
             </div>
           </div>
           <div class="form-group">
-            <label for="" class="col-md-3 control-label">类型</label>
+            <label   class="col-md-3 control-label">类型</label>
             <div class="col-md-2">
               <select name="tc_type" class="form-control input-sm">
                 <option value="1" {{tc_type==1?"selected":""}}>讲师</option>
@@ -59,7 +59,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="" class="col-md-3 control-label">性别</label>
+            <label   class="col-md-3 control-label">性别</label>
             <div class="col-md-4">
               <label class="radio-inline">
                 <input name="tc_gender" value="0" type="radio" {{tc_gender==0?"checked":""}} {{!tc_id?"checked":""}}> 男

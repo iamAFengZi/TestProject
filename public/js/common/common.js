@@ -48,7 +48,7 @@ define(["jquery", "template", "nprogress", "jquery_cookie"],function ($, templat
     //侧边栏父级菜单高亮设置
     var pathObj = {
       "/teacher/add" : "/teacher/list",
-      "settings" : "/"
+      "/settings" : "/"
     }
     //判断是否存在设置,如果不存在设置则点亮自己
     pathName = pathObj[pathName] || pathName;

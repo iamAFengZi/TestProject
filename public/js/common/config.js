@@ -12,7 +12,8 @@ require.config({
     tools:"js/common/tools",
     datepicker:"assets/bootstrap-datepicker/js/bootstrap-datepicker",
     datepicker_cn:"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min",
-    nprogress:"assets/nprogress/nprogress"
+    nprogress:"assets/nprogress/nprogress",
+    uploadify:"assets/uploadify/jquery.uploadify"
   },
   
   shim : {
@@ -21,6 +22,9 @@ require.config({
     },
     datepicker_cn:{
       deps : ["jquery" , "datepicker"]
+    },
+    uploadify: {
+      deps : ["jquery"]
     }
   }
 })
