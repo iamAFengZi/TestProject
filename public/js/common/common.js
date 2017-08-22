@@ -21,7 +21,16 @@ define(["jquery", "template", "jquery_cookie"],function ($, template) {
   
     //侧边栏高亮（当前页面）
     //获取到地址栏中pathname，跟a标签的href属性对比，如果相同，就让这个a高亮，排他
-    var pathNamr = location.pathname;
+    var pathName = location.pathname;
+    
+    //侧边栏父级菜单高亮设置
+    var pathObj = {
+      "/teacher/add" : "/teacher/list",
+      "settings" : "/"
+    }
+    //判断是否存在设置,如果不存在设置则点亮自己
+    pathName = pathObj[pathName] || pathName;
+    
     var $links = $(".navs a")
     $links.each(function () {
       //$(this)优化性能
@@ -29,7 +38,7 @@ define(["jquery", "template", "jquery_cookie"],function ($, template) {
       
       //排他点亮自己
       $that.removeClass("active");
-      if($that.attr("href") == pathNamr){
+      if($that.attr("href") == pathName){
         $that.addClass("active");
       }
     });
