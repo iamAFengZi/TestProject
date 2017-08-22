@@ -10,8 +10,10 @@ define(["jquery", "template", "jquery_cookie"],function ($, template) {
       if($.cookie("PHPSESSID")){
         //通过cookie渲染侧边栏的头像和用户昵称
         var userInfo = JSON.parse($.cookie("userInfo"));
-        $(".aside img").attr("src", userInfo.tc_avatar);
-        $(".aside h4").text(userInfo.tc_name);
+        var html = template("common_cookie_tpl", userInfo);
+        $(".aside .profile").html(html);
+        // $(".aside img").attr("src", userInfo.tc_avatar);
+        // $(".aside h4").text(userInfo.tc_name);
       }else{
         location.href = "/login";
       }

@@ -2,11 +2,16 @@
   <!-- 个人资料 -->
   <div class="profile">
     <!-- 头像 -->
-    <div class="avatar img-circle">
-      <img src="/uploads/avatar.jpg">
-    </div>
-    <h4>布头儿</h4>
+    <!--挖了个坑-->
   </div>
+  <!--模板引擎渲染头像与用户昵称-->
+  <script type="text/html" id="common_cookie_tpl">
+    <div class="avatar img-circle">
+      <img src="{{tc_avatar}}">
+    </div>
+    <h4>{{tc_name}}</h4>
+  </script>
+  
   <!-- 导航菜单 -->
   <div class="navs">
     <ul class="list-unstyled">
