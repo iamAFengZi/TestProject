@@ -1,9 +1,31 @@
 /**
  * Created by Bear_Yiii on 2017-08-20.
  */
-define(["jquery", "template", "jquery_cookie"],function ($, template) {
+define(["jquery", "template", "nprogress", "jquery_cookie"],function ($, template, NProgress) {
   //侧边栏页面功能
   $(function () {
+    //进度条
+    NProgress.start();
+    setTimeout(function () {
+      NProgress.done();
+    },1000);
+    
+    //遮罩层
+    //给全部的ajax请求注册开始事件,让遮罩层显示
+    $(document).ajaxStart(function () {
+      // console.log("我开始了");
+      $(".mask").fadeIn();
+    });
+    //注册结束事件,让遮罩层隐藏
+    $(document).ajaxStop(function () {
+      // console.log("我结束了");
+      setTimeout(function () {
+        $(".mask").fadeOut();
+      },500);
+      
+    });
+    
+    
     //除了登录页面,其他页面都需要的功能
     if(location.pathname != "/login"){
       //判断用户是否登录,判断cookie中有没有PHPSESSID值
