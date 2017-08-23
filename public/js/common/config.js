@@ -7,13 +7,15 @@ require.config({
     jquery:"assets/jquery/jquery",
     jquery_form:"assets/jquery-form/jquery.form",
     jquery_cookie:"assets/jquery-cookie/jquery.cookie",
+    jquery_region:"assets/jquery-region/jquery.region",
     template:"assets/artTemplate/template-web",
     bootstrap:"assets/bootstrap/js/bootstrap",
     tools:"js/common/tools",
     datepicker:"assets/bootstrap-datepicker/js/bootstrap-datepicker",
     datepicker_cn:"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min",
     nprogress:"assets/nprogress/nprogress",
-    uploadify:"assets/uploadify/jquery.uploadify"
+    uploadify:"assets/uploadify/jquery.uploadify",
+    ckeditor:"assets/ckeditor/ckeditor"
   },
   
   shim : {
@@ -25,6 +27,9 @@ require.config({
     },
     uploadify: {
       deps : ["jquery"]
+    },
+    ckeditor: {
+      exports:"CKEDITOR"
     }
   }
 })
