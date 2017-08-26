@@ -67,8 +67,7 @@ define(["jquery", "template","tools","ckeditor","jquery_cookie","jquery_region",
     
     //保存功能
     $(".settings").on("click",".btn_save",function () {
-      console.log($("form").serialize());
-  
+        
       //将富文本编辑器内容同步到textarea中,返回给后台
       for ( instance in CKEDITOR.instances ) {
         CKEDITOR.instances[instance].updateElement();
