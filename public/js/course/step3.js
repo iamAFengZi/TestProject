@@ -4,7 +4,7 @@
 define(["jquery","template","tools","bootstrap","jquery_form"],function ($, template, tools) {
   $(function () {
     var cs_id = tools.getParam("cs_id");
-    console.log(cs_id);
+    // console.log(cs_id);
     
     //发送ajax请求获取课时数据
     $.ajax({
@@ -35,7 +35,7 @@ define(["jquery","template","tools","bootstrap","jquery_form"],function ($, temp
           ct_id:ct_id
         },
         success:function (info) {
-          console.log(info);
+          // console.log(info);
           var data = info.result;
           data.title = "修改课时";
           data.btnText = "修 改";
@@ -53,20 +53,48 @@ define(["jquery","template","tools","bootstrap","jquery_form"],function ($, temp
       var html = template("course_add_tpl", {
         title : "添加课时",
         btnText : "保 存",
-        type : "edit",
+        type : "add",
+        ct_cs_id:cs_id
       });
       $("#lesson").html(html);
   
       $("#lesson").modal("show");
     });
-    // $("#lesson").on("click","#btn_course", function () {
-    //   alert("haha");
-    //   console.log($("form").serialize());
-    //   //关于免费课时单选框不被选中时,无法获得value值,只能通过ajaxSubmit传参数给后台
-    //   $("form").ajaxSubmit({
-    //     type:""
-    //   });
-    // });
+    
+    //给模态框按钮注册委托事件,保存或修改课时数据
+    $("#lesson").on("click","#btn_course", function () {
+      console.log($("form").serialize());
+      var btnType = $(this).data("type");
+      console.log(btnType);
+      var url = "";
+      if(btnType == "add"){
+        url = "/api/course/chapter/add";
+      }else{
+        url = "/api/course/chapter/modify";
+      }
+      
+      var ct_is_free = "";
+      //判断ct_is_free是否被选中
+      if($("#ct_is_free").prop("checked")){
+        ct_is_free = 0;
+      }else{
+        ct_is_free = 1;
+      }
+      
+      //关于免费课时单选框不被选中时,无法获得value值,只能通过ajaxSubmit传参数给后台
+      $("form").ajaxSubmit({
+        type:"post",
+        url : url,
+        data: {
+          ct_is_free : ct_is_free
+        },
+        success: function (info) {
+          if (info.code == 200) {
+            location.reload();
+          }
+        }
+      });
+    });
     
   });
 });

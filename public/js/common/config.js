@@ -15,7 +15,8 @@ require.config({
     datepicker_cn:"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min",
     nprogress:"assets/nprogress/nprogress",
     uploadify:"assets/uploadify/jquery.uploadify",
-    ckeditor:"assets/ckeditor/ckeditor"
+    ckeditor:"assets/ckeditor/ckeditor",
+    my_Jcrop:"assets/Jcrop/js/my_Jcrop"
   },
   
   shim : {
@@ -30,6 +31,9 @@ require.config({
     },
     ckeditor: {
       exports:"CKEDITOR"
+    },
+    Jcrop: {
+      deps : ["jquery"]
     }
   }
 })

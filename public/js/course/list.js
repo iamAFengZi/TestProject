@@ -8,8 +8,10 @@ define(["jquery","template"],function ($, template) {
       type:"get",
       url:"/api/course",
       success: function (info) {
-        var html = template("course_list_tpl", info);
-        $(".courses").html(html);
+        if(info.code == 200){
+          var html = template("course_list_tpl", info);
+          $(".courses").html(html);
+        }
       }
     });
   });

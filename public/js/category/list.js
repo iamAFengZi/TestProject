@@ -8,8 +8,10 @@ define(["jquery","template"],function ($, template) {
       type:"get",
       url:"/api/category",
       success:function (info) {
-        var html = template("category_list_tpl", info);
-        $("#category_list").html(html);
+        if(info.code == 200){
+          var html = template("category_list_tpl", info);
+          $("#category_list").html(html);
+        }
       }
     });
       

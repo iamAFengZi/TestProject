@@ -11,7 +11,10 @@ define(["jquery"],function ($) {
         url:"/api/course/create",
         data:$("form").serialize(),
         success:function (info) {
-          location.href = "/course/step1?cs_id=" + info.result.cs_id;
+          if(info.code == 200){
+            location.href = "/course/step1?cs_id=" + info.result.cs_id;
+          }
+        
         }
       });
     });

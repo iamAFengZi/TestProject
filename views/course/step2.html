@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>学IT - 后台管理系统</title>
-  <script src="../../../boxuegu/public/js/course/step2.js"></script>
+  <link rel="stylesheet" href="/public/assets/Jcrop/css/Jcrop.css">
   <?php include '/views/common/css.html';?>
   <style>
     div.btn_style{
@@ -82,7 +82,7 @@
             <button class="btn btn-success btn-sm btn_style" id="upfile">选择图片</button>
           </div>
           <div class="col-md-2">
-            <a href="javascript:;" class="btn btn-warning btn-sm" disabled>裁切图片</a>
+            <button href="javascript:;" class="btn btn-warning btn-sm" id="btn_jcrop" {{!cs_cover_original?"disabled":""}}>裁切图片</button>
           </div>
         </div>
       </div>
