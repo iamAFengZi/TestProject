@@ -14,37 +14,39 @@ define(["jquery","template","tools","ckeditor"],function ($,template,tools,CKEDI
         cs_id:cs_id
       },
       success:function (info) {
-        var html = template("course_step1_tpl", info.result);
-        $(".course-add").html(html);
-        
-        //富文本编辑器
-        CKEDITOR.replace("cs_brief",{
-          toolbarGroups : [
-            { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-            { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-            '/',
-            { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-            { name: 'styles' },
-            { name: 'colors' },
-          ]
-        });
-        
-        //一级分类发生是更新子级分类内容
-        $(".body").on("change","#cs_cg_pid",function () {
-          //获取子级分类数据
-          $.ajax({
-            type:"get",
-            url:"/api/category/child",
-            data:{
-              cg_id:$("#cs_cg_pid").val()
-            },
-            success:function (info) {
-              console.log(info);
-              var html = template("category_two_tpl", info);
-              $("#cs_cg_id").html(html);
-            }
+        if(info.code == 200){
+          var html = template("course_step1_tpl", info.result);
+          $(".course-add").html(html);
+  
+          //富文本编辑器
+          CKEDITOR.replace("cs_brief",{
+            toolbarGroups : [
+              { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+              { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+              '/',
+              { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+              { name: 'styles' },
+              { name: 'colors' },
+            ]
           });
-        });
+  
+          //一级分类发生是更新子级分类内容
+          $(".body").on("change","#cs_cg_pid",function () {
+            //获取子级分类数据
+            $.ajax({
+              type:"get",
+              url:"/api/category/child",
+              data:{
+                cg_id:$("#cs_cg_pid").val()
+              },
+              success:function (info) {
+                console.log(info);
+                var html = template("category_two_tpl", info);
+                $("#cs_cg_id").html(html);
+              }
+            });
+          });
+        }
       }
     });
      

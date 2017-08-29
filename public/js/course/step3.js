@@ -36,16 +36,18 @@ define(["jquery","template","tools","bootstrap","jquery_form"],function ($, temp
         },
         success:function (info) {
           // console.log(info);
-          var data = info.result;
-          data.title = "修改课时";
-          data.btnText = "修 改";
-          data.type ="edit";
-          var html = template("course_add_tpl", data);
-          $("#lesson").html(html);
+          if(info.code == 200){
+            var data = info.result;
+            data.title = "修改课时";
+            data.btnText = "修 改";
+            data.type ="edit";
+            var html = template("course_add_tpl", data);
+            $("#lesson").html(html);
   
-          $("#lesson").modal("show");
+            $("#lesson").modal("show");
+          }
         }
-        });
+      });
     });
     
     //给添加课时注册委托事件
